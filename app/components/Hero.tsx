@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Copy, Check } from "lucide-react";
+import AnimatedContent from "@/components/ui/animatedComponent";
 
 export default function Hero() {
   const email = "e225li@uwaterloo.ca";
@@ -21,33 +22,42 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="flex flex-col">
             <div className="mb-8">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-black mb-2">
-                ELLA
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-black mb-2 block overflow-hidden">
+                <AnimatedContent transition={{ duration: 0.5 }}>Ella</AnimatedContent>
               </h1>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-black">
-                LI
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight text-black block overflow-hidden">
+                <AnimatedContent transition={{ duration: 0.5 }}>Li</AnimatedContent>
               </h1>
             </div>
-            <div className="flex items-center gap-2 text-black text-xl">
-              <span >{email}</span>
-              <Button 
-                variant="ghost"
-                size="icon"
-                onClick={copyEmail}
-                aria-label={copied ? "Copied" : "Copy email"}
-              >
-                {copied ? <Check className="h-4 w-4"/> : <Copy className="h-4 w-4"/>}
-              </Button>
-            </div>
+            <AnimatedContent>
+              <div className="flex items-center gap-2 text-black text-xl">
+                <span >{email}</span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={copyEmail}
+                  aria-label={copied ? "Copied" : "Copy email"}
+                >
+                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                </Button>
+              </div>
+            </AnimatedContent>
           </div>
 
           <div className="flex flex-col items-start lg:items-end">
-            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-gray-300 mb-8 overflow-hidden">
-              <img src="/images/profile.jpg" alt="Ella Li" className="w-full h-full object-cover" />
-            </div>
-            <p className="max-w-md text-lg md:text-xl text-black leading-relaxed text-right">
-              Hello, I'm a Global Business and Digital Arts student at the University of Waterloo specializing in minimal design — based in the GTA area, working remote. Let's create!
-            </p>
+            <AnimatedContent
+              initial={{ scale: 0.5 }}
+              animate={{ scale: 1.0 }}
+            >
+              <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-gray-300 mb-8 overflow-hidden">
+                <img src="/images/profile.jpg" alt="Ella Li" className="w-full h-full object-cover" />
+              </div>
+            </AnimatedContent>
+            <AnimatedContent>
+              <p className="max-w-md text-lg md:text-xl text-black leading-relaxed text-right">
+                Hello, I'm a Global Business and Digital Arts student at the University of Waterloo specializing in minimal design — based in the GTA area, working remote. Let's create!
+              </p>
+            </AnimatedContent>
           </div>
         </div>
       </div>
