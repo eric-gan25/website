@@ -5,6 +5,7 @@ const navItems = [
   { href: "/works", label: "Works" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
+  { href: "/images/ella_li_resume.pdf", label: "Resume", pdf: true},
 ];
 
 export default function Navigation() {
@@ -17,14 +18,14 @@ export default function Navigation() {
         <div className="pr-6 sm:pr-8 lg:pr-12">
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <NavLink key={item.href} href={item.href}>
+              <NavLink key={item.href} href={item.href} pdf={item.pdf}>
                 {item.label}
               </NavLink>
             ))}
           </div>
           <div className="md:hidden flex items-center gap-4">
             {navItems.map((item) => (
-              <NavLink key={item.href} href={item.href} showHover={false}>
+              <NavLink key={item.href} href={item.href} pdf={item.pdf} showHover={false}>
                 {item.label}
               </NavLink>
             ))}
