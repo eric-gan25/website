@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NavLink } from "@/components/ui/nav-link";
+import { NavLink } from "@/components/ui/navLink";
 
 const navItems = [
   { href: "/works", label: "Works" },
